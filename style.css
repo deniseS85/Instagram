@@ -1,0 +1,801 @@
+body {
+    margin: 0;
+    font-family: 'Helvetica';
+    overflow-x: hidden!important;
+}
+
+:root {
+    --grey: rgb(142,142,142);
+}
+
+.flex {
+    display: flex;
+}
+
+.margin {
+    margin: 10px;
+}
+
+/* Header Body */
+.header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 60px;
+    box-shadow: 0px 2px 2px lightgrey;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+    z-index: 19;
+}
+
+.logoInstagram {
+    font-family: 'Grand Hotel', cursive;
+    font-size: 30px;
+    width: 260px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.searchField {
+    background-color: rgb(239,239,239);
+    padding: 8px 14px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 260px;
+    border: none;
+}
+
+.searchField img {
+    width: 20px;
+}
+
+.search-btn {
+    font-size: 17px;
+    color: var(--grey);
+    margin-left: 12px;
+    font-weight: 100;
+    opacity: 0.7;
+}
+
+.inputSearch {
+    background-color: rgb(239,239,239);
+    padding: 8px 14px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 234px;
+    height: 20px;
+    border: none;
+    display: none;
+    outline: none;
+    font-size: 15px;
+    display: none;
+}
+
+.inputSearch::placeholder {
+    font-size: 17px;
+    color: var(--grey);
+    opacity: 0.7;
+    font-weight: 100;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    width: 88px;
+}
+
+.nav img {
+    width: 25px;
+    margin-right: 20px;
+}
+
+.profilNav {
+    width: 26px;
+    height: 26px;
+    border-radius: 50px;
+    border: 1px solid white;
+    object-fit: cover;
+}
+
+/* Hamburger Mwenu */
+.overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s, visibility .35s, height .35s;
+    overflow: hidden;
+    background: black;
+    z-index: -1;
+}
+
+#hamburger-input{
+    display: none;
+}
+  
+#hamburger-menu {
+    width: 20px;
+    height: 20px;
+    display: none;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    cursor: pointer;
+    background: linear-gradient( to bottom, #3D0E61, #3D0E61 20%, white 20%, white 40%, #3D0E61 40%, #3D0E61 60%, white 60%, white 80%, #3D0E61 80%, #3D0E61 100% );
+}
+  
+#hamburger-menu #sidebar-menu {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 200px;
+    height: 100%;
+    background-color: white;
+    transition: 0.3s;
+    padding: 0px 30px;
+    box-sizing: border-box;
+}
+  
+#hamburger-menu h3 {
+    color: black;
+    font-size: 20px;
+    font-family: 'Helvetica';
+}
+
+#sidebar-menu {
+    display: flex;
+    flex-direction: column;
+}
+  
+#sidebar-menu img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+#hamburger-input:checked + #hamburger-menu #sidebar-menu {
+    visibility: visible;
+    right: 0;
+}
+
+#hamburger-input:checked ~ .overlay{
+    visibility: visible;
+    opacity: 0.4;
+}
+  
+/* ////////////////////////////////////////////////////////// */
+
+/* Post Container */
+.contentContainer {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(248, 243, 243);
+    padding-top: 90px;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 1. Box Profile */
+.profilContent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 122px;
+    width: 473px;
+    padding-left: 10px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    background-color: white;
+    margin-bottom: 20px
+}
+
+.profilImg {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50px;
+    margin: 10px;  
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* 2. Box Header*/
+.headerPost {
+    display: flex;
+    align-items: center;
+}
+
+.headerProfil {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50px;
+    margin: 10px;  
+}
+
+.headerName {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.gradient {
+    border-radius: 50%;
+    background: linear-gradient(to right, red, orange);
+    padding: 2px;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* 2. Box Post-Content */
+.postContent {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    background-color: white;
+    width: 473px;
+    margin-bottom: 15px;
+    position: relative;
+    font-size: 14px;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* 2. Box Image Post */
+.posting {
+    display: flex;
+    flex-direction: column; 
+}
+
+.postingImg {
+    width: 473px;
+    height: 473px;
+    object-fit: cover;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* 2. Box Icons */
+.iconsPost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.iconsPost img {
+    width: 25px;
+}
+
+.iconLeft img { 
+    margin: 10px 0 8px 10px;
+}
+
+.iconRight img {
+    width: 25px;
+   padding-right: 19px;
+}
+
+.commentIcon {
+    width: 30px !important;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* 2. Box Likes */
+.likePost {
+    margin: 10px;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* 2. Box Posting Text */
+.postText {
+    display: flex;
+    margin: 10px;
+}
+
+.more {
+    display: none;
+}
+
+.moreReadButton {
+    border: none;
+    background-color: transparent;
+    color: grey;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* 2. Box Posting-Zeit */
+.timePost {
+    font-size: 10px;
+    color: var(--grey);
+    margin: 10px;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* Kommentar Bereich Post */
+.commentContent {
+    border-top: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.commentContent img {
+    width: 25px;
+}
+
+.commentInput {
+    border: none;
+    font-size: 15px;
+    width: 345px;
+    outline: none;
+}
+
+.commentInput::placeholder {
+    color: var(--grey);
+    opacity: 0.7;
+}
+
+.showComments { 
+    color: var(--grey);
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.inputLeft {
+    display: flex;
+    align-items: center;
+}
+
+.posting-btn {
+    border: none;
+    background-color: transparent;
+    color:rgb(0,149,246);
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* Smileys Post-Content */
+.smiley {
+    cursor: pointer;
+    margin: 10px;
+}
+
+.smileyBoxPost {
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    background-color: white;
+    width: 300px;
+    height: 250px;
+    overflow: scroll;
+    position: absolute;
+    bottom: 65px;
+    z-index: 10;
+    box-shadow: 2px 2px 4px lightgrey;
+}
+
+.smileyBoxText {
+    margin: 10px 0 10px 15px;
+    opacity: 0.5;
+}
+
+.smileys {
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.smileys span {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* Message Container */
+.messageBox {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(87, 87, 87, 0.8);
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* Message Content */
+.messageContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 14px;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* Message Content left */
+.messageBoxLeft {
+    display: flex;
+    align-items: center;
+    height: 750px;
+    width: 672px;
+    background-color: black;
+}
+
+.messageBoxImg {
+    width: 672px;
+    height: 691px;
+    object-fit: cover;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* Message Content right */
+.messageBoxRight {
+    background-color: white;
+    height: 750px;
+    width: 500px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* Message Box Right Header */
+.headerMessage {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    height: 63px;
+}
+
+.headerMessageLeft {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.closeMessageBox {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 30px;
+    cursor: pointer; 
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* Message Box Posting Text */
+.messageBoxPost {
+    display: flex;
+    flex-direction: column;
+    margin: 16px 24px 0 9px;
+    overflow: scroll;
+    height: 496px;
+}
+
+.postMessage {
+    margin: 10px 10px 20px 10px;
+    width: 363px;
+    word-break: break-word;
+    text-align: start;
+}
+
+.newPost {
+    margin-top: 50px;
+}
+
+.close {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.timeComment {
+    font-size: 10px;
+    color: var(--grey);
+    margin-top: 10px;
+}
+
+/* ////////////////////////////////////////////////////////// */
+
+/* Kommentar Bereich Message */
+.commentMessage {
+    border-top: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.commentMessage img {
+    width: 25px;
+}
+
+.inputLeftMessage {
+    display: flex;
+    align-items: center;
+    padding-left: 11px;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* Icons Message Box */
+.iconsMessage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-top: 1px solid lightgray;
+    padding-left: 7px;
+}
+
+.iconsMessage img {
+    width: 25px;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* Message Box Footer */
+.messageFooter {
+    background-color: white;
+    position: absolute;
+    bottom: 2px;
+    width: 100%; 
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* Likes Message Box */
+.likeMessage {
+   padding-left: 17px;
+   margin-bottom: 15px;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* Message Box Posting-Zeit */
+
+.timepostMessage {
+    font-size: 10px;
+    color: var(--grey);
+    margin-bottom: 15px;
+    width: 100%;
+    padding-left: 8px;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* Smileys Message Box */
+.smileyBoxMesage {
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    background-color: white;
+    width: 300px;
+    height: 250px;
+    overflow: scroll;
+    position: absolute;
+    z-index: 50;
+    box-shadow: 2px 2px 4px lightgrey;
+}
+
+@media (max-width: 1235px) {
+    .messageBoxLeft {
+        display: none;
+    } 
+}
+
+@media (max-width: 768px) {
+    body,html {
+        overflow-x:hidden;
+    }
+    .header {
+        width: 100vw;
+    }
+    .logoInstagram {
+        width: 16vw;
+    }
+
+    .searchField {
+        width: 200px;
+    }
+    .nav {
+      display: none;
+    }
+    #hamburger-menu {
+      display: inline;
+    }
+    .messageBoxRight {
+        width: 768px;
+        height: 1024px
+    }
+    .postMessage {
+        width: 768px;
+    }
+    .messageBoxPost {
+        height: 767px;
+    }
+
+    .messageBoxPost {
+        height: 792px;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 485px) {
+    .logoInstagram {
+        font-size: 20px;
+    }
+    .profilContent {
+        width: 417px;
+    }
+    .postContent {
+        width: 428px;
+    }
+    .postingImg {
+        width: 428px;
+    }
+    .commentInput {
+        width: 300px;
+    }
+   
+}
+
+/* Iphone 6/7/8 Plus*/
+@media (min-width: 400px) and (max-width: 414px) {
+    .logoInstagram {
+        font-size: 20px;
+    }
+    .header {
+        width: 100vw;
+    }
+    .searchField {
+        width: 40vw;
+    }
+    .profilContent {
+        width:  97vw;
+        height: 13vh;
+    }
+    .profilImg {
+        width: 50px;
+        height: 50px;
+    }
+    .postContent {
+        width: 99vw;
+    }
+    .postingImg {
+        width: 99vw;
+        height: 40vh;
+    }
+    .commentInput {
+       width: 67vw;
+    }
+    .messageBoxRight {
+        width: 100vw;
+        height: 100vh;
+    }
+    .messageBoxPost {
+        height: 68.5vh;
+        margin-top: 0;
+    }
+}
+/* Iphone 12 Pro */
+@media (max-width: 390px) {
+    .header {
+        width: 100vw;
+    }
+    .logoInstagram {
+        width: 20vw;
+        font-size: 20px;
+    }
+    .searchField {
+        width: 40vw;
+    }
+    .contentContainer {
+        width: 100vw;
+    }
+    .profilContent {
+        width:  97vw;
+        height: 9vh;
+    }
+    .profilContent img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
+    .postContent {
+        width: 99vw;
+    }
+    .postingImg {
+        width: 99vw;
+        height: 40vh;
+    }
+    .commentContent {
+        width: 99vw;
+    }
+    .commentInput {
+        width: 67vw;
+    }
+    .messageBoxRight {
+        width: 100vw;
+        height: 100vh;
+    }
+    .messageBoxPost {
+        height: 72.5vh;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .profilContent {
+        width: 97vw;
+        height: 80px;
+    }
+    .postContent {
+        width: 100vw;
+    }
+    .postingImg {
+        width: 100vw;
+    }
+    .commentInput {
+       width: 50vw;
+    }
+    .postText {
+        padding-right: 8px;
+    }
+    .moreReadButton {
+        margin-left: 0;
+    }
+    .messageBoxRight {
+        width: 100vw;
+        height: 667px;
+    }
+    .messageBoxPost {
+        height: 116vw;
+        margin-top: 0;
+    }
+}
+
+@media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) {
+        .messageBoxRight {
+            height: 812px;
+        }
+        .messageBoxPost {
+            height: 580px;
+            margin-top: 0;
+        }
+     }
+
+
+
+
+
+
+
+
+
+
